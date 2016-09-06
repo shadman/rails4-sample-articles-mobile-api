@@ -23,11 +23,15 @@ You need to create a database first, then add that configuration details inside 
 
 # API Details
 
-## Get a list of all articles for any specific owner:
+## Get a list of articles for any specific owner:
 
 	get '/:owner_name/articles'
 
-### Respomse:
+### Example:
+
+	/shadman/articles
+
+### Response:
 	
 	{"result":{"id":1,"owner_name":"shadman","articles":[{"id":1,"name":"Article Name 1","price":"23.36","description":"test description 1 here"},{"id":2,"name":"Article Name 2","price":"43.36","description":"test description 2 here"}]}}
 
@@ -36,16 +40,20 @@ You need to create a database first, then add that configuration details inside 
 
 	get '/articles/:id'
 
-### Respomse:
+### Example:
+
+	/articles/3
+	
+### Response:
 
 	{"result":{"id":1,"name":"Article Name 1","price":"23.36","description":"test description 1 here","owner_name":"shadman"}}
 
 
-## Get a list of all owners:
+## Get a list of owners:
 
 	get '/owners'
 
-### Respomse:
+### Response:
 
 	{"result":{"owners":[{"id":1,"name":"shadman"},{"id":2,"name":"matz"},{"id":3,"name":"test"}]}}
 
@@ -54,7 +62,11 @@ You need to create a database first, then add that configuration details inside 
 
 	get '/:owner_name'
 
-### Respomse:
+### Example:
+
+	/shadman
+	
+### Response:
 
 	{"result":{"id":1,"name":"shadman"}}
 

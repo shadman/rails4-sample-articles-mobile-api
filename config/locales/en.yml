@@ -20,4 +20,5 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  invalid: "Sorry, invalid request found."
+  no_record: "Sorry, no record(s) found."

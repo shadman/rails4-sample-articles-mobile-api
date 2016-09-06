@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   end
 
   def response_400 message
-  	render status: 400, json: { result: { error: { message: I18n.t(message) } } 
+  	render status: 400, json: { result: { error: { message: I18n.t(message) } } }
   end
 
 end

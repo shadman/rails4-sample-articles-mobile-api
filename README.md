@@ -2,22 +2,25 @@
 
 Sample JSON API in Ruby 4 for Articles and Owner details
 
-# Create database and update configuration
+
+# Setup Application
+
+## Create database and update configuration
 
 You need to create a database first, then add that configuration details inside `database.yml` file
 
 	vim config/database.yml
 
 
-# Run bundle install to install all required Gems
+## Run bundle install to install all required Gems
 
 	bundle install
 
-# Run Migrations to create tables
+## Run migrations to create tables
 
 	rale db:migrate
 
-# Run Seeds fot test data
+## Run seeds for testing data
 
 	rake db:seed
 

@@ -2,27 +2,30 @@ class OwnerController < ApplicationController
 
   # Method GET
   # Example: '/owners'
-  # JSON Success Output: { "result": [ {"id": 1, "name": "shadman"}, {"id": 2, "name": "matz"} ] } 
-  # JSON Error Output: { "result": { "error": { "message": "Sorry, no record(s) found." }
+  # JSON Success Response: {"result":{"owners":[{"id":1,"name":"shadman"},{"id":2,"name":"matz"},{"id":3,"name":"test"}]}}
+  # JSON Error Response: {"result":{"error":{"message":"Sorry, no record(s) found."}
   def list
-    owners = Owner.all_actived
-    response_400('no_record') if owners.nil?
+    owner = Owner.new
+    owners = owner.all_actived
+    owners_data = { owners: owners }
+    return response_400('no_record') if owners.nil?
 
-    response_200 owners
+    response_200 owners_data
   end
 
 
   # Method GET
   # Param: owner_name
   # Example: '/:owner_name'
-  # JSON Success Output: { "result": {"id": 1, "name": "shadman"} } 
-  # JSON Error Output: { "result": { error: { "message": "Sorry, invalid request found." }
+  # JSON Success Response: {"result":{"id":1,"name":"shadman"}}
+  # JSON Error Response: {"result":{"error":{"message":"Sorry, invalid request found."}
   def view
     owner_name = params[:owner_name]
-    owner = Owner.find_owner_by_name owner_name
-    response_400('invalid') if owner.nil?
+    owner = Owner.new
+    owner_data = owner.find_owner_by_name owner_name
+    return response_400('invalid') if owner_data.nil?
 
-    response_200 owner
+    response_200 owner_data
   end
 
 end
